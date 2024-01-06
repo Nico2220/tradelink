@@ -54,11 +54,16 @@ class Trie {
   }
 }
 
-// O(N*W +  KS^2)
-// where N is the vocabulary length
-// W - length of a single word
-// K - length of queries
-// S- length of query string
+/**
+ 
+ * O(N*L * KS^2) time | O(N * L) space
+ * // where N is the number of words in the vocabulary 
+ * L - average length of a word
+ * K - number of queries
+ * S- Average length of query string
+ 
+ */
+
 function findConcatanations(
   N: number,
   vocabulary: string[],
@@ -70,10 +75,16 @@ function findConcatanations(
   for (const word of vocabulary) {
     trie.insert(word);
   }
-  const results = [];
+  const results = {} as {
+    [key: string]: { concatOptions: string[]; concatOptionsLength: number };
+  };
+
   for (const query of queries) {
     const concatOptions = trie.searchConcatenations(query);
-    results.push(concatOptions.length, concatOptions);
+    results[query] = {
+      concatOptionsLength: concatOptions.length,
+      concatOptions,
+    };
   }
 
   return results;
