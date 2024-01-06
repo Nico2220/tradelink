@@ -93,5 +93,11 @@ function findConcatanations(
 const vocabulary = ["abcd", "cdef", "ab", "ef", "ffff"];
 const queries = ["abcdef", "ffff"];
 
-const r = findConcatanations(5, vocabulary, 2, queries);
-console.log(r);
+const concatResults = findConcatanations(5, vocabulary, 2, queries);
+
+for (const key of Object.keys(concatResults)) {
+  console.log(
+    concatResults[key].concatOptionsLength,
+    ...concatResults[key].concatOptions
+  );
+}

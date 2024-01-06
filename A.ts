@@ -12,8 +12,8 @@ function nonFib(n: number): number[] {
     lastTwoFib[1] = nextFib;
 
     const d = lastTwoFib[0] + lastTwoFib[1];
+    // O(1)
     for (let j = nextFib + 1; j < d; j++) {
-      // O(1)
       if (nonFibNumbers.length === n) {
         break;
       }

@@ -51,14 +51,14 @@ class LRUCache {
   }
 }
 
-function test(...args: any) {
+function testFun(...args: any) {
   return `${args}`;
 }
 
 const lru = new LRUCache(2);
-console.log(lru.getOrInserValue("a", test, "value a"));
-console.log(lru.getOrInserValue("b", test, "Value b"));
-console.log(lru.getOrInserValue("c", test, "Value b"));
-console.log(lru.getOrInserValue("d", test, `Value d`));
-console.log(lru.getOrInserValue("a", test, `Value a`));
-console.log(lru.getOrInserValue("d", test, "Value d"));
+console.log(lru.getOrInserValue("a", testFun, "value a"));
+console.log(lru.getOrInserValue("b", testFun, "Value b"));
+console.log(lru.getOrInserValue("c", testFun, "Value b"));
+console.log(lru.getOrInserValue("d", testFun, `Value d`));
+console.log(lru.getOrInserValue("a", testFun, `Value a`));
+console.log(lru.getOrInserValue("d", testFun, "Value d"));
